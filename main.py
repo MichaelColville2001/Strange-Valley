@@ -1307,7 +1307,6 @@ def fight(l_t):
         if p:
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1320,7 +1319,6 @@ def fight(l_t):
               mob.hp[0] -= temp
           elif mob_at >= 8 and mob_at <= 9:
             temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.at_2[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1333,7 +1331,6 @@ def fight(l_t):
               mob.hp[0] -= temp
           elif mob_at == 10:
             temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.s_at[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1391,7 +1388,6 @@ def fight(l_t):
           Player.agility[0] -= 1
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1404,7 +1400,6 @@ def fight(l_t):
               mob.hp[0] -= temp
           elif mob_at >= 8 and mob_at <= 9:
             temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.at_2[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1417,7 +1412,6 @@ def fight(l_t):
               mob.hp[0] -= temp
           elif mob_at == 10:
             temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.s_at[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1484,21 +1478,18 @@ def fight(l_t):
          if p:
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
             Player.hp[0] -= temp
           elif mob_at >= 8 and mob_at <= 9:
             temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]*0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.at_2[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
             Player.hp[0] -= temp
           elif mob_at == 10:
             temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
-            print(f"the {mob.name} is preparing to {mob.s_at[0]}")
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1527,7 +1518,9 @@ def fight(l_t):
       elif attack == 'block':
        if random.randint(1,12) <= block:
         if p:
-          if mob_at >= 1 and mob_at <= 7:
+          print('\nyou blocked the attack')
+        else:
+            if mob_at >= 1 and mob_at <= 7:
             print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
           elif mob_at >= 8 and mob_at <= 9:
@@ -1536,8 +1529,6 @@ def fight(l_t):
           elif mob_at == 10:
             print(f"the {mob.name} is preparing to {mob.s_at[0]}")
             print('')
-          print('\nyou blocked the attack')
-        else:
             print('\nyou blocked the attack')
        else:
          print('\nyou failed your block\n')
@@ -1593,6 +1584,25 @@ def fight(l_t):
          if p:
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+          elif mob_at >= 8 and mob_at <= 9:
+            temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]* 0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+          elif mob_at == 10:
+            temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+         else:
+          if mob_at >= 1 and mob_at <= 7:
+            temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
             print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
             print(f'you took {temp} damage')
@@ -1608,25 +1618,6 @@ def fight(l_t):
           elif mob_at == 10:
             temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
             print(f"the {mob.name} is preparing to {mob.s_at[0]}")
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-         else:
-          if mob_at >= 1 and mob_at <= 7:
-            temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-          elif mob_at >= 8 and mob_at <= 9:
-            temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]* 0.01)) * mob.strength[0])
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-          elif mob_at == 10:
-            temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1642,6 +1633,25 @@ def fight(l_t):
          if p:
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+          elif mob_at >= 8 and mob_at <= 9:
+            temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]* 0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+          elif mob_at == 10:
+            temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+         else:
+          if mob_at >= 1 and mob_at <= 7:
+            temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
             print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
             print(f'you took {temp} damage')
@@ -1657,25 +1667,6 @@ def fight(l_t):
           elif mob_at == 10:
             temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
             print(f"the {mob.name} is preparing to {mob.s_at[0]}")
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-         else:
-          if mob_at >= 1 and mob_at <= 7:
-            temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-          elif mob_at >= 8 and mob_at <= 9:
-            temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]* 0.01)) * mob.strength[0])
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-          elif mob_at == 10:
-            temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]* 0.01)) * mob.strength[0])
             print('')
             print(f'you took {temp} damage')
             print('')
@@ -1685,6 +1676,25 @@ def fight(l_t):
         if p:
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]*0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+          elif mob_at >= 8 and mob_at <= 9:
+            temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]*0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+          elif mob_at == 10:
+            temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]*0.01)) * mob.strength[0])
+            print('')
+            print(f'you took {temp} damage')
+            print('')
+            Player.hp[0] -= temp
+        else:
+          if mob_at >= 1 and mob_at <= 7:
+            temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]*0.01)) * mob.strength[0])
             print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
             print(f'you took {temp} damage')
@@ -1700,25 +1710,6 @@ def fight(l_t):
           elif mob_at == 10:
             temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]*0.01)) * mob.strength[0])
             print(f"the {mob.name} is preparing to {mob.s_at[0]}")
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-        else:
-          if mob_at >= 1 and mob_at <= 7:
-            temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]*0.01)) * mob.strength[0])
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-          elif mob_at >= 8 and mob_at <= 9:
-            temp = int(round(mob.at_2[1]-(random.randint(w1,w2) * mob.at_2[1]*0.01)) * mob.strength[0])
-            print('')
-            print(f'you took {temp} damage')
-            print('')
-            Player.hp[0] -= temp
-          elif mob_at == 10:
-            temp = int(round(mob.s_at[1]-(random.randint(w1,w2) * mob.s_at[1]*0.01)) * mob.strength[0])
             print('')
             print(f'you took {temp} damage')
             print('')
