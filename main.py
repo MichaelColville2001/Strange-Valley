@@ -1520,7 +1520,7 @@ def fight(l_t):
         if p:
           print('\nyou blocked the attack')
         else:
-            if mob_at >= 1 and mob_at <= 7:
+          if mob_at >= 1 and mob_at <= 7:
             print(f"the {mob.name} is preparing to {mob.at[0]}")
             print('')
           elif mob_at >= 8 and mob_at <= 9:
