@@ -1935,18 +1935,6 @@ def fight(l_t):
     print(' ')
     print('you escaped')
     print(' ')
-    Player.call_stats()
-    print(' ')
-    print(f'you killed the {mob.name}')
-    Player.lvl[0] += int(mob.xp*lvl)
-    print(' ')
-    gp = random.randint(mob.gp[0],mob.gp[1])
-    print(f'it droped {gp} gp and {int(mob.xp*lvl)} xp')
-    Player.gp += gp
-    print(' ')
-    pick_loot(mob.l_t)
-    print(' ')
-    lvls()
   elif Player.hp[0] > 0:
     Player.call_stats()
     print(' ')
