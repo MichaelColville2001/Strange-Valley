@@ -1860,6 +1860,15 @@ def fight(l_t):
         else:
           print('\nyou failed to dodge\n')
           if mob_at >= 1 and mob_at <= 7:
+            print(f"the {mob.name} is preparing to {mob.at[0]}")
+            print('')
+          elif mob_at >= 8 and mob_at <= 9:
+            print(f"the {mob.name} is preparing to {mob.at_2[0]}")
+            print('')
+          elif mob_at == 10:
+            print(f"the {mob.name} is preparing to {mob.s_at[0]}")
+            print('')
+          if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
             print('')
             print(f'you took {temp} damage')
@@ -1885,6 +1894,15 @@ def fight(l_t):
           break
         else:
           print('\nyou failed to run\n')
+          if mob_at >= 1 and mob_at <= 7:
+            print(f"the {mob.name} is preparing to {mob.at[0]}")
+            print('')
+          elif mob_at >= 8 and mob_at <= 9:
+            print(f"the {mob.name} is preparing to {mob.at_2[0]}")
+            print('')
+          elif mob_at == 10:
+            print(f"the {mob.name} is preparing to {mob.s_at[0]}")
+            print('')
           if mob_at >= 1 and mob_at <= 7:
             temp = int(round(mob.at[1]-(random.randint(w1,w2) * mob.at[1]* 0.01)) * mob.strength[0])
             print('')
@@ -1922,10 +1940,22 @@ def fight(l_t):
             print(f'you took {temp} damage')
             print('')
             Player.hp[0] -= temp
-  if attack == 'run':
+  if attack == 'run' and Player.hp[0] > 0:
     print(' ')
     print('you escaped')
     print(' ')
+    Player.call_stats()
+    print(' ')
+    print(f'you killed the {mob.name}')
+    Player.lvl[0] += int(mob.xp*lvl)
+    print(' ')
+    gp = random.randint(mob.gp[0],mob.gp[1])
+    print(f'it droped {gp} gp and {int(mob.xp*lvl)} xp')
+    Player.gp += gp
+    print(' ')
+    pick_loot(mob.l_t)
+    print(' ')
+    lvls()
   elif Player.hp[0] > 0:
     Player.call_stats()
     print(' ')
@@ -2097,7 +2127,7 @@ def game_loop():
       player_stuff()
       if Player.hp[0] <= 0:
         break
-      print("""you find yourself next lost in the forest
+      print("""you find yourself lost in the forest
       
       go right [ r ]
       go left [ l ]
@@ -2215,7 +2245,7 @@ def game_loop():
       player_stuff()
       if Player.hp[0] <= 0:
         break
-      print("""you find yourself next lost in the forest
+      print("""you find yourself lost in the forest
       
       go right [ r ]
       go left [ l ]
@@ -2238,7 +2268,7 @@ def game_loop():
       player_stuff()
       if Player.hp[0] <= 0:
         break
-      print("""you find yourself next lost in the forest
+      print("""you find yourself lost in the forest
       
       go right [ r ]
       go left [ l ]
