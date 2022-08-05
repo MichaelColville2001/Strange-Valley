@@ -1935,7 +1935,7 @@ def fight(l_t):
     print(' ')
     print('you escaped')
     print(' ')
-  elif Player.hp[0] > 0:
+  elif Player.hp[0] > 0 and mob.hp[0] <= 0:
     Player.call_stats()
     print(' ')
     print(f'you killed the {mob.name}')
