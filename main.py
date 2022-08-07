@@ -50,19 +50,19 @@ s = none('',slots=['helm','chest','legs','boots','gloves','r_h','l_h','bag1','ba
 
 
     #foods
-apple = food('apple',"come on man it's an apple",heal=[1,2],slots=['bag1','bag2','bag3'],price=[1,2])  
+apple = food('apple',"come on man it's an apple",heal=[1,3],slots=['bag1','bag2','bag3'],price=[1,2])  
 raw_trout = food('raw trout','a raw river fish',heal=[-1,1],slots=['bag1','bag2','bag3'],price=[1,2])
 raw_salmon = food('raw salmon','a raw salmon',heal=[-1,2],slots=['bag1','bag2','bag3'],price=[2,3])
 raw_rabbit = food('raw rabbit', 'a raw rabbit',heal=[-1,1],slots=['bag1','bag2','bag3'],price=[1,2])
 raw_boar = food('raw boar', 'raw boar meat',heal=[-2,1],slots=['bag1','bag2','bag3'],price=[2,3])
 raw_venison = food('raw venison','raw venison',heal=[-1,2],slots=['bag1','bag2','bag3'],price=[4,6])
-raw_dragon = food('raw dragon meat','a peice of a recently killed dragon',heal=[0,4],slots=['bag1','bag2','bag3'],price=[20,35])
-cooked_trout = food('cooked trout','a cooked river fish',heal=[2,3],slots=['bag1','bag2','bag3'],price=[2,3])
-cooked_salmon = food('cooked salmon','a cooked salmon',heal=[3,5],slots=['bag1','bag2','bag3'],price=[4,6])
-cooked_rabbit = food('cooked rabbit', 'a cooked rabbit',heal=[2,3],slots=['bag1','bag2','bag3'],price=[2,3])
-cooked_boar = food('cooked boar', 'cooked boar meat',heal=[3,5],slots=['bag1','bag2','bag3'],price=[4,6])
-cooked_venison = food('cooked venison','cooked venison',heal=[5,8],slots=['bag1','bag2','bag3'],price=[9,12])
-cooked_dragon = food('cooked dragon meat','cooked dragon meat',heal=[8,12],slots=['bag1','bag2','bag3'],price=[50,60])
+raw_dragon = food('raw dragon meat','a peice of a recently killed dragon',heal=[0,6],slots=['bag1','bag2','bag3'],price=[20,35])
+cooked_trout = food('cooked trout','a cooked river fish',heal=[2,4],slots=['bag1','bag2','bag3'],price=[2,3])
+cooked_salmon = food('cooked salmon','a cooked salmon',heal=[3,6],slots=['bag1','bag2','bag3'],price=[4,6])
+cooked_rabbit = food('cooked rabbit', 'a cooked rabbit',heal=[2,4],slots=['bag1','bag2','bag3'],price=[2,3])
+cooked_boar = food('cooked boar', 'cooked boar meat',heal=[3,6],slots=['bag1','bag2','bag3'],price=[4,6])
+cooked_venison = food('cooked venison','cooked venison',heal=[5,10],slots=['bag1','bag2','bag3'],price=[9,12])
+cooked_dragon = food('cooked dragon meat','cooked dragon meat',heal=[17,25],slots=['bag1','bag2','bag3'],price=[50,60])
 
 
     #weapons
@@ -148,22 +148,15 @@ bank = [s,s,s]
 def check_bank():
   print(f""" 
       CHEST 1
-
       {bank[0].name}
-
-
       CHEST 2
-
       {bank[1].name}
-
-
       CHEST 3
-
       {bank[2].name}
       """)
   
 class player:
-  def __init__(self, name, agility=[1,1], hp=[1,1], strength=1, gp=0, helm=s, chest=shirt, gloves=s, legs=pants, boots=shoes, r_h=s, l_h=s, bag=[s,s,s], score=0, points=10, lvl=[0,1], location=1):
+  def __init__(self, name, agility=[1,1], hp=[1,1], strength=1, gp=0, helm=s, chest=shirt, gloves=s, legs=pants, boots=shoes, r_h=s, l_h=s, bag=[s,s,s], score=0, points=25, lvl=[0,1], location=1):
     #name
     self.name = name
     #stats
@@ -341,65 +334,41 @@ class player:
       HELM
       
       {Player.helm.name}
-
-
-
       CHEST
       
       {Player.chest.name}
-
-
-
       LEGS
       
       {Player.legs.name}
-
-
       
       BOOTS
       
       {Player.boots.name}
-
-
       
       GLOVES
       
       {Player.gloves.name}
-
-
       
       RIGHT HAND
       
       {Player.r_h.name}
-
-
       
       LEFT HAND
       
       {Player.l_h.name}
-
-
       
       BAG SLOT ONE
       
       {Player.bag[0].name}
-
-
       
       BAG SLOT TWO
       
       {Player.bag[1].name}
-
-
       
       BAG SLOT THREE
       
       {Player.bag[2].name}
-
-
-
       GOLD PEICES
-
       {Player.gp}
     """
     )
@@ -985,7 +954,6 @@ class player:
         break
 
 Player = player(input("\nEnter your name here: "))
-
 class mob:
   def __init__(self,name,desc,l_t,at=[0,0],at_2=[0,0],s_at=[0,0],agility=[0,0],hp=[1,1],strength=[0,0],def_range=[1,1],gp=[0,0],xp=1):
    self.name = name
@@ -1093,6 +1061,7 @@ def pick_up(item):
           break
           
 
+
 def pick_loot(list):
   pick_up(list[(random.randint(1,len(list))-1)])
 
@@ -1107,14 +1076,14 @@ uncommon_dungeon=L_T(None,50,iron_helm,3,iron_platelegs,3,iron_chestplate,3,iron
 rare_dungeon=L_T(None,50,voidstone_helm,3,voidstone_platelegs,3,voidstone_chestplate,3,voidstone_gauntlets,3,voidstone_boots,3,voidstone_sheild,3,voidstone_dagger,3,voidstone_sword,3,voidstone_mace,3,dragonscale_helm,1,dragonscale_platelegs,1,dragonscale_chestplate,1,dragonscale_gauntlets,1,dragonscale_boots,1,dragonscale_sheild,1,dragonbone_dagger,1,dragonbone_sword,1,dragonbone_mace,1)
 
   #mob loot tables
-rabbit_loot=L_T(None,6,raw_rabbit,5,leather_cap,1)
-boar_loot=L_T(None,12,raw_boar,10,hide_boots,1,hide_gloves,1)
-elk_loot=L_T(None,12,raw_venison,10,hide_shirt,1,hide_pants,1)
+rabbit_loot=L_T(raw_rabbit,5,leather_cap,1)
+boar_loot=L_T(raw_boar,10,hide_boots,1,hide_gloves,1)
+elk_loot=L_T(raw_venison,10,hide_shirt,1,hide_pants,1)
 
-goblin_loot=L_T(None,12,hide_shirt,1,hide_pants,1,hide_boots,1,hide_gloves,1,leather_cap,1,copper_dagger,1,copper_sword,1,copper_mace,1,wood_sheild,1)
-skeleton_loot=L_T(None,15,bronze_helm,1,bronze_platelegs,1,bronze_chestplate,1,bronze_gauntlets,1,bronze_boots,1,bronze_sheild,1,bronze_dagger,1,bronze_sword,1,bronze_mace,1)
-troll_loot=L_T(None,15,iron_helm,1,iron_platelegs,1,iron_chestplate,1,iron_gauntlets,1,iron_boots,1,iron_sheild,1,iron_dagger,1,iron_sword,1,iron_mace,1)
-cyclops_loot=L_T(None,18,voidstone_helm,1,voidstone_platelegs,1,voidstone_chestplate,1,voidstone_gauntlets,1,voidstone_boots,1,voidstone_sheild,1,voidstone_dagger,1,voidstone_sword,1,voidstone_mace,1)
+goblin_loot=L_T(hide_shirt,1,hide_pants,1,hide_boots,1,hide_gloves,1,leather_cap,1,copper_dagger,1,copper_sword,1,copper_mace,1,wood_sheild,1)
+skeleton_loot=L_T(bronze_helm,1,bronze_platelegs,1,bronze_chestplate,1,bronze_gauntlets,1,bronze_boots,1,bronze_sheild,1,bronze_dagger,1,bronze_sword,1,bronze_mace,1)
+troll_loot=L_T(iron_helm,1,iron_platelegs,1,iron_chestplate,1,iron_gauntlets,1,iron_boots,1,iron_sheild,1,iron_dagger,1,iron_sword,1,iron_mace,1)
+cyclops_loot=L_T(voidstone_helm,1,voidstone_platelegs,1,voidstone_chestplate,1,voidstone_gauntlets,1,voidstone_boots,1,voidstone_sheild,1,voidstone_dagger,1,voidstone_sword,1,voidstone_mace,1)
 dragon_loot=L_T(raw_dragon,15,dragonscale_helm,1,dragonscale_platelegs,1,dragonscale_chestplate,1,dragonscale_gauntlets,1,dragonscale_boots,1,dragonscale_sheild,1,dragonbone_dagger,1,dragonbone_sword,1,dragonbone_mace,1)
 
 shop_loot=L_T(cooked_dragon,2,raw_dragon,2,dragonscale_helm,1,dragonscale_platelegs,1,dragonscale_chestplate,1,dragonscale_gauntlets,1,dragonscale_boots,1,dragonscale_sheild,1,dragonbone_dagger,1,dragonbone_sword,1,dragonbone_mace,1,voidstone_helm,2,voidstone_platelegs,2,voidstone_chestplate,2,voidstone_gauntlets,2,voidstone_boots,2,voidstone_sheild,2,voidstone_dagger,2,voidstone_sword,2,voidstone_mace,2,iron_helm,4,iron_platelegs,4,iron_chestplate,4,iron_gauntlets,4,iron_boots,4,iron_sheild,4,iron_dagger,4,iron_sword,4,iron_mace,4,bronze_helm,6,bronze_platelegs,6,bronze_chestplate,6,bronze_gauntlets,6,bronze_boots,6,bronze_sheild,6,bronze_dagger,6,bronze_sword,6,bronze_mace,6,hide_shirt,8,hide_pants,8,hide_boots,8,hide_gloves,8,leather_cap,8,copper_dagger,8,copper_sword,8,copper_mace,8,wood_sheild,8,raw_venison,8,cooked_venison,8,raw_boar,10,cooked_boar,10,raw_rabbit,10,cooked_rabbit,10,raw_trout,10,cooked_trout,10,raw_salmon,10,cooked_salmon,10)
@@ -1966,11 +1935,12 @@ def game_loop():
         break
 
       # change location
-      print("""you find yourself at the rivers edge next to an impassable cliff
+      print("""you find yourself at the rivers edge next to an impassable cliff, a campfire burns nearby
       
       go with the cliff to your right [ r ]
       go with the river to your left [ l ]
       go into the forest [ f ] 
+      cook at the campfire [ c ]
       """)
       main=input()
       if main == 'r':
@@ -1979,6 +1949,8 @@ def game_loop():
         Player.location = 2
       elif main == 'f':
         Player.location = one_two(5,6)
+      elif main == 'c':
+        Player.cook()
     elif Player.location == 2: ########################################################################################################################
       fight(f1)
       if Player.hp[0] <= 0:
@@ -2440,10 +2412,12 @@ def game_loop():
         Player.location = 15
       elif main == 'f':
         Player.location = 12
+
+
 add_stats()
 game_loop()
 print('you died')
 print('')
 Player.check_inv()
 Player.call_stats()
-ind = input()
+inp = input()
